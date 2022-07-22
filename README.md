@@ -19,3 +19,5 @@ yarn
 yarn compile
 yarn test
 ```
+
+Opcionalmente, habilite logs de execução descomentando as linhas contendo `console.log` nos arquivos `*.sol`

@@ -11,11 +11,11 @@ contract Vulneravel {
     using Strings for address;
 
     constructor() {
-        console.log('Vulneravel: criado em %s', address(this));
+        // console.log('Vulneravel: criado em %s', address(this));
     }
 
     function depositar() payable public {
-        console.log("depositar(): %s depositou { value: % wei }", msg.sender.toHexString(), msg.value);
+        // console.log("depositar(): %s depositou { value: % wei }", msg.sender.toHexString(), msg.value);
         saldo[msg.sender] += msg.value;
     }
 
@@ -23,7 +23,7 @@ contract Vulneravel {
         // Vamos assumir que o resgatante é o chamador desta função
         address payable resgatante = payable(msg.sender);
 
-        console.log("resgatar(): %s tem %s wei a resgatar", resgatante, saldo[resgatante]);
+        // console.log("resgatar(): %s tem %s wei a resgatar", resgatante, saldo[resgatante]);
 
         // Verifica se o resgatante tem saldo
         require(saldo[resgatante] > 0, "Nao ha saldo a ser resgatado.");
@@ -36,7 +36,7 @@ contract Vulneravel {
         // Atualiza o saldo
         saldo[resgatante] = 0;
 
-        console.log("resgatar(): saldo de %s atualizado para 0", resgatante);
+        // console.log("resgatar(): saldo de %s atualizado para 0", resgatante);
     }
 
     function saldoTotal() public view returns (uint256) {
