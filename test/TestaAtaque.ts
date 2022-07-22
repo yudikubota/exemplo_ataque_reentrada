@@ -15,16 +15,12 @@ describe("Ataque a um contrato vulnerável", function () {
   // Definimos um fixture para reusar o deploy em cada teste.
   async function deployVulneravelFixture() {
     // Contratos são publicados usando a primeira conta por padrão
-    const [_vitima, _atacante, _depositante] = await ethers.getSigners();
+    [vitima, atacante, depositante] = await ethers.getSigners();
 
     const Vulneravel = await ethers.getContractFactory("Vulneravel");
     contratoVulneravel = await Vulneravel.deploy();
 
-    vitima      = _vitima
-    atacante    = _atacante
-    depositante = _depositante
-
-    return { contratoVulneravel, vitima: _vitima, atacante: _atacante, depositante: _depositante };
+    return { contratoVulneravel, vitima, atacante, depositante };
   }
 
   before(async function () {
